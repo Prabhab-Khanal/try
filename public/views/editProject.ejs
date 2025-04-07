@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project - <%= project.title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <%- include('partials/navbar', { page: 'projects' }) %>
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">Edit Project: <%= project.title %></h1>
+
+        <form action="/solutions/projects/<%= project.id %>/edit" method="POST" class="space-y-6">
+            <!-- Title -->
+            <div>
+                <label for="title" class="block text-lg font-medium text-gray-700">Title</label>
+                <input type="text" id="title" name="title" value="<%= project.title %>" class="w-full p-3 border border-gray-300 rounded-lg" required>
+            </div>
+
+            <!-- Feature Image URL -->
+            <div>
+                <label for="feature_img_url" class="block text-lg font-medium text-gray-700">Feature Image URL</label>
+                <input type="text" id="feature_img_url" name="feature_img_url" value="<%= project.feature_img_url %>" class="w-full p-3 border border-gray-300 rounded-lg" required>
+            </div>
+
+            <!-- Sector -->
+            <div>
+                <label for="sector_id" class="block text-lg font-medium text-gray-700">Sector</label>
+                <select id="sector_id" name="sector_id" class="w-full p-3 border border-gray-300 rounded-lg">
+                    <% sectors.forEach(sector => { %>
+                        <option value="<%= sector.id %>" <%= project.sector_id === sector.id ? 'selected' : '' %>><%= sector.sector_name %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <!-- Short Introduction -->
+            <div>
+                <label for="intro_short" class="block text-lg font-medium text-gray-700">Short Introduction</label>
+                <textarea id="intro_short" name="intro_short" class="w-full p-3 border border-gray-300 rounded-lg" required><%= project.intro_short %></textarea>
+            </div>
+
+            <!-- Short Summary -->
+            <div>
+                <label for="summary_short" class="block text-lg font-medium text-gray-700">Short Summary</label>
+                <textarea id="summary_short" name="summary_short" class="w-full p-3 border border-gray-300 rounded-lg" required><%= project.summary_short %></textarea>
+            </div>
+
+            <!-- Impact -->
+            <div>
+                <label for="impact" class="block text-lg font-medium text-gray-700">Impact</label>
+                <textarea id="impact" name="impact" class="w-full p-3 border border-gray-300 rounded-lg" required><%= project.impact %></textarea>
+            </div>
+
+            <!-- Original Source URL -->
+            <div>
+                <label for="original_source_url" class="block text-lg font-medium text-gray-700">Original Source URL</label>
+                <input type="text" id="original_source_url" name="original_source_url" value="<%= project.original_source_url %>" class="w-full p-3 border border-gray-300 rounded-lg" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">Update Project</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

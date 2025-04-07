@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- Navbar -->
+    <%- include('partials/navbar', { page: 'home' }) %>
+
+    <!-- About Section -->
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-10 mb-10">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-4">About</h1>
+        <p class="text-lg text-gray-700 text-center mb-6">This project is created by <span class="font-semibold text-blue-600">Sarbesh Khadka</span>. Everything you want to know about me - the designer & developer.
+
+            .</p>
+                
+        <!-- Project Details -->
+        <div class="text-center">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">More About me </h2>
+            <p class="text-lg text-gray-600 mb-4"> I am from Nepal.</p>
+
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">My Hobbies</h2>
+            <p class="text-lg text-gray-600 mb-4">I like to swim.</p>
+        </div>
+    </div>
+
+</body>
+</html>

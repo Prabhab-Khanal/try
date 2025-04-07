@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= project.title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <%- include('partials/navbar', { page: 'projects' }) %> <!-- Assuming 'projects' is the active page for the navbar -->
+
+    <div class="container mx-auto p-6">
+        <!-- Project Title -->
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-4"><%= project.title %></h1>
+
+        <!-- Project Summary -->
+        <p class="text-xl text-center text-gray-600 mb-6"><%= project.summary_short %></p>
+
+        <!-- Project Image -->
+        <div class="w-full mb-6">
+            <img src="<%= project.feature_img_url %>" alt="<%= project.title %>" class="w-full h-72 object-cover rounded-lg shadow-lg">
+        </div>
+
+        <!-- Project Detailed Description -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-gray-700 mb-4"><%= project.intro_short %></p>
+        </div>
+
+        <!-- Project Impact -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Impact</h2>
+            <p class="text-gray-700 mb-4"><%= project.impact %></p>
+        </div>
+
+        <!-- Project Sector -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Sector</h2>
+            <p class="text-gray-700"><%= project.Sector.sector_name %></p>
+        </div>
+
+        <!-- Link to the Original Source -->
+        <div class="text-center mt-6">
+            <a href="<%= project.original_source_url %>" target="_blank" class="text-blue-500 hover:underline">Read more about this project</a>
+        </div>
+
+        <!-- Edit Project Button -->
+<div class="text-center mt-6">
+    <a href="/solutions/projects/<%= project.id %>/edit" class="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition duration-300">Edit Project</a>
+</div>
+
+
+        <form action="/solutions/projects/<%= project.id %>/delete" method="POST" class="inline-block" onsubmit="return confirmDelete()">
+            <button type="submit" class="bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-600 transition duration-300">
+                Delete Project
+            </button>
+        </form>
+        
+
+        <!-- Back to Projects Button -->
+        <div class="text-center mt-6">
+            <a href="/solutions/projects" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">Back to Projects</a>
+        </div>
+    </div>
+
+</body>
+</html>

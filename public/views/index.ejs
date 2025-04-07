@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+   <%- include('partials/navbar', { page: 'home' }) %>
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center">Welcome to Climate Solutions</h1>
+        <p class="text-center text-gray-600">Explore projects tackling climate change.</p>
+        <div class="flex justify-center mt-6">
+            <a href="/solutions/projects" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">
+                Get Started Now
+            </a>
+        </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+            <% projects.slice(0, 3).forEach(project => { %>  <!-- Show only first 3 projects -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <!-- Project Image -->
+                    <img src="<%= project.feature_img_url %>" alt="<%= project.title %>" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                    
+                    <!-- Project Title and Description -->
+                    <h2 class="text-xl font-bold"><%= project.title %></h2>
+                    <p class="text-gray-600"><%= project.description %></p>
+                    
+                    <!-- View Project Link -->
+                    <a href="/solutions/projects/<%= project.id %>" class="text-blue-500 hover:underline mt-4 inline-block">View Project</a>
+                    
+                    <!-- Get Started Now Button -->
+                    
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
