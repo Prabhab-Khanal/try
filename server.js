@@ -12,6 +12,7 @@
  *  Published URL: ___________________________________________________________
  *
  ********************************************************************************/
+console.log("PG module installed:", !!require('pg'));
 
 // server.js
 const { Project, Sector, sequelize } = require("./models/projects"); // Import Project and Sector models
