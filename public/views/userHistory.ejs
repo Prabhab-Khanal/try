@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col text-center">
+    <div class="max-w-xl w-full">
+      <h1 class="text-4xl font-bold mb-4">User History</h1>
+      
+      <!-- Show logged in user details -->
+      <div class="mb-6 bg-white p-4 rounded-lg shadow-md text-left">
+        <p><span class="font-bold">User Name:</span> <%= session.user.userName %></p>
+        <p><span class="font-bold">Email:</span> <%= session.user.email %></p>
+      </div>
+
+      <!-- Login History Table -->
+      <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+        <table class="table w-full">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="text-left px-4 py-2">Login Date/Time</th>
+              <th class="text-left px-4 py-2">Client Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% session.user.loginHistory.forEach(entry => { %>
+            <tr class="hover:bg-gray-50">
+              <td class="px-4 py-2"><%= entry.dateTime %></td>
+              <td class="px-4 py-2"><%= entry.userAgent %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
