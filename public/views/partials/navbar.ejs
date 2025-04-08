@@ -6,6 +6,7 @@
             <a href="/solutions/projects" class="text-white text-lg hover:text-gray-400 <%= page === 'projects' ? 'font-bold' : '' %>">Projects</a>
             <a href="/solutions/addProject" class="text-white text-lg hover:text-gray-400">Add New Project</a> <!-- Added link here -->
             <a href="/about" class="text-white text-lg hover:text-gray-400 <%= page === 'about' ? 'font-bold' : '' %>">About Me</a>
+            <a href="/userHistory" class="text-white text-lg hover:text-gray-400 <%= page === 'user-history' ? 'font-bold' : '' %>">User History</a> <!-- Added user history link here -->
             
             <% if (session.user) { %> <!-- Check if user is logged in -->
                 <a href="/logout" class="text-white text-lg hover:text-gray-400 ml-4">Logout</a>
